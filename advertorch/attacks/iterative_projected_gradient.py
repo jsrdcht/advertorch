@@ -434,7 +434,7 @@ class MomentumIterativeAttack(Attack, LabelMixin):
                 delta.data *= clamp(
                     (self.eps * normalize_by_pnorm(delta.data, p=2) /
                         delta.data),
-                    max=1.)
+                    min=1.)
                 delta.data = clamp(
                     x + delta.data, min=self.clip_min, max=self.clip_max) - x
             else:
